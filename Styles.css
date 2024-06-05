@@ -81,3 +81,6 @@ p{
     font-weight:bold;
     color: hsla(0,0%,0%,0.75);
 }
+.hidden{
+    display:none;
+}
