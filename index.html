@@ -7,14 +7,29 @@
     <link href="Styles.css" rel="stylesheet" />
 </head>
 <body>
-    <form class="weatherForm">
-        <input type="text" class="cityInput" placeholder="Enter city">
-        <button type="submit">Get Weather</button>
-    </form>
-
-    <div class="card hidden">
-        
-    </div>
+    <header>
+        <nav class="navbar">
+            <div class="navLogo">
+                <img src="pictures/WeatherGatewayLogo3.png" alt="Logo" class="logo">
+                
+            </div>
+            <ul class="navLinks">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Weather</a></li>
+                <li><a href="#">Maps</a></li>
+                <li><a href="#">News</a></li>
+            </ul>
+        </nav>
+        <form class="weatherForm">
+            <input type="text" class="cityInput" placeholder="Enter city">
+            <button type="submit">Get Weather</button>
+        </form>
+    </header>
+    <main>
+        <div class="contentSection">
+            <div class="card hidden"></div>
+        </div>
+    </main>
     <script src="index.js"></script>
 </body>
 </html>
