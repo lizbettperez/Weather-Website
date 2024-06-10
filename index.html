@@ -5,18 +5,26 @@
     <title>Weather App</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="Styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+            display: none;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav class="navbar">
             <div class="navLogo">
                 <img src="pictures/WeatherGatewayLogo1.png" alt="Logo" class="logo">
-                
             </div>
             <ul class="navLinks">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Weather</a></li>
-                <li><a href="#">Maps</a></li>
+                <li><a href="#" id="mapsLink">Maps</a></li>
                 <li><a href="#">News</a></li>
             </ul>
         </nav>
@@ -28,8 +36,10 @@
     <main>
         <div class="contentSection">
             <div class="card hidden"></div>
+            <div id="map"></div>
         </div>
     </main>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
