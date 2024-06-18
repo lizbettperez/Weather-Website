@@ -6,6 +6,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="Styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: hsl(0, 0%, 95%);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+        }
+
+        header {
+            width: 100%;
+            background-color: hsl(214, 52%, 49%);
+            padding: 10px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: white;
+            background-color: hsla(0, 0%, 0%, 0.3);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 20px;
+            height: 150px;
+        }
+
+        .navLogo {
+            display: flex;
+            align-items: center;
+            margin-right: auto;
+        }
+
+        .navLogo img.logo {
+            width: 120px; /* Increase the width for a larger logo */
+            height: 100px; /* Maintain aspect ratio */
+            margin-top: 20px;
+            margin-left: 50px;
+
+        }
+
+        .navLinks {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin-left: auto;
+        }
+
+        .navLinks li {
+            margin: 0;
+        }
+
+        .navLinks a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        .navLinks a:hover {
+            text-decoration: underline;
+        }
+
+        .contentSection {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        #map {
+            height: 500px;
+            width: 700px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -23,39 +106,12 @@
     </header>
     <main>
         <div class="contentSection">
-            <h1>Forecast Map</h1>
+            <h1>Weather Maps</h1>
             <div id="map"></div>
         </div>
     </main>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script>
-        const apiKey = "16a1232114165e8af050a61b3931e1d9";
-        let map = L.map('map').setView([51.505, -0.09], 5);
-
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
-
-        let precipitationLayer = L.tileLayer(`https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=${apiKey}`, {
-            attribution: 'Weather data © OpenWeatherMap'
-        }).addTo(map);
-
-        let tempLayer = L.tileLayer(`https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${apiKey}`, {
-            attribution: 'Weather data © OpenWeatherMap'
-        });
-
-        let windLayer = L.tileLayer(`https://tile.openweathermap.org/map/wind_new/{z}/{x}/{y}.png?appid=${apiKey}`, {
-            attribution: 'Weather data © OpenWeatherMap'
-        });
-
-        let baseLayers = {
-            "Precipitation": precipitationLayer,
-            "Temperature": tempLayer,
-            "Wind": windLayer
-        };
-
-        L.control.layers(baseLayers).addTo(map);
-    </script>
+    <script src="maps.js"></script>
 </body>
 </html>
 

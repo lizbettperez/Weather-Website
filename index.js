@@ -97,46 +97,4 @@ function displayError(message) {
     card.appendChild(errorDisplay);
 }
 
-const mapsLink = document.getElementById("mapsLink");
-mapsLink.addEventListener("click", function(event) {
-    event.preventDefault();
-    const mapContainer = document.getElementById("map");
-
-    if (!mapInitialized) {
-        map = L.map('map').setView([51.505, -0.09], 5); // Initial map view
-
-        // Add OpenStreetMap tile layer
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© OpenStreetMap contributors'
-        }).addTo(map);
-
-        // Add OpenWeatherMap tile layers
-        var precipitationLayer = L.tileLayer(`https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=${apiKey}`, {
-            attribution: 'Weather data © OpenWeatherMap'
-        }).addTo(map);
-
-        var tempLayer = L.tileLayer(`https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${apiKey}`, {
-            attribution: 'Weather data © OpenWeatherMap'
-        });
-
-        var windLayer = L.tileLayer(`https://tile.openweathermap.org/map/wind_new/{z}/{x}/{y}.png?appid=${apiKey}`, {
-            attribution: 'Weather data © OpenWeatherMap'
-        });
-
-        // Layer control
-        var baseLayers = {
-            "Precipitation": precipitationLayer,
-            "Temperature": tempLayer,
-            "Wind": windLayer
-        };
-
-        L.control.layers(baseLayers).addTo(map);
-        mapInitialized = true;
-    }
-
-    mapContainer.style.display = mapContainer.style.display === "none" ? "block" : "none";
-    if (mapContainer.style.display === "block") {
-        map.invalidateSize(); // Fix map rendering issues when displayed
-    }
-});
 
