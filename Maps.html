@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Weather Maps</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="Styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="navLogo">
+                <img src="pictures/WeatherGatewayLogo1.png" alt="Logo" class="logo">
+            </div>
+            <ul class="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Weather.html">Weather</a></li>
+                <li><a href="Maps.html" id="mapsLink">Maps</a></li>
+                <li><a href="News.html">News</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="contentSection">
+            <h1>Forecast Map</h1>
+            <div id="map"></div>
+        </div>
+    </main>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        const apiKey = "16a1232114165e8af050a61b3931e1d9";
+        let map = L.map('map').setView([51.505, -0.09], 5);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        let precipitationLayer = L.tileLayer(`https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=${apiKey}`, {
+            attribution: 'Weather data © OpenWeatherMap'
+        }).addTo(map);
+
+        let tempLayer = L.tileLayer(`https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=${apiKey}`, {
+            attribution: 'Weather data © OpenWeatherMap'
+        });
+
+        let windLayer = L.tileLayer(`https://tile.openweathermap.org/map/wind_new/{z}/{x}/{y}.png?appid=${apiKey}`, {
+            attribution: 'Weather data © OpenWeatherMap'
+        });
+
+        let baseLayers = {
+            "Precipitation": precipitationLayer,
+            "Temperature": tempLayer,
+            "Wind": windLayer
+        };
+
+        L.control.layers(baseLayers).addTo(map);
+    </script>
+</body>
+</html>
+

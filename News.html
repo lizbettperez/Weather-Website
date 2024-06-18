@@ -2,11 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Weather App</title>
+    <title>Weather News</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="Styles.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    
 </head>
 <body>
     <header>
@@ -17,23 +15,23 @@
             <ul class="navLinks">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="Weather.html">Weather</a></li>
-                <li><a href="Maps.html" id="mapsLink">Maps</a></li>
+                <li><a href="Maps.html">Maps</a></li>
                 <li><a href="News.html">News</a></li>
             </ul>
         </nav>
-        <form class="weatherForm">
-            <input type="text" class="cityInput" placeholder="Enter city">
-            <button type="submit">Get Weather</button>
-        </form>
     </header>
     <main>
-        <h1>Home</h1>
         <div class="contentSection">
-            <div class="card hidden"></div>
-            <div id="map"></div>
+            <h1>Weather News</h1>
+            <article>
+                <h2>Storm Alert</h2>
+                <p>A major storm is expected to hit the east coast this weekend. Make sure to stay prepared and follow local advisories.</p>
+            </article>
+            <article>
+                <h2>Record High Temperatures</h2>
+                <p>This summer has seen record high temperatures across many regions. Experts attribute this to climate change and advise taking precautions during heatwaves.</p>
+            </article>
         </div>
     </main>
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="index.js"></script>
 </body>
 </html>

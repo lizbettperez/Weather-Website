@@ -17,6 +17,10 @@ header {
     flex-direction: column;
     align-items: center;
 }
+h1{
+    color:white;
+    
+}
 
 .navbar {
     display: flex;
@@ -162,6 +166,6 @@ p {
 }
 #map {
     height: 500px;
-    width: 100%;
+    width: 700px;
     margin-top: 20px;
 }
