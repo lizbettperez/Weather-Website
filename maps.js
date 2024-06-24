@@ -1,5 +1,5 @@
 const apiKey = "16a1232114165e8af050a61b3931e1d9";
-let map = L.map('map').setView([51.505, -0.09], 5);
+let map = L.map('map').setView([37.0902, -95.7129], 4);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'

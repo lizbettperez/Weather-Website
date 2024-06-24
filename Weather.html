@@ -5,6 +5,7 @@
     <title>Weather Info</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="Styles.css" rel="stylesheet" />
+    <link rel="icon" href="pictures/WeatherGatewayLogo1.png" type="image/x-icon"/>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -28,7 +29,8 @@
 
         h1 {
             color: white;
-            background-color: hsl(214, 52%, 49%);
+            margin-top: 20px;
+            text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.377);
         }
 
         .navbar {
@@ -79,11 +81,22 @@
         
         button[type="submit"]:hover {
             background-color: hsl(219, 69%, 21%);
+
+        }
+        .button[type="submit"]{
+            width: 300px;
+            height: 20px;
+        }
+        .cityInput{
+            height: 15px;
+            width: 500px;
+            background-color: hsl(199, 64%, 66%);
+            border: transparent;
         }
         .contentSection {
             width: 100%;
-            max-width: 600px;
             margin: 20px auto;
+            
         }
         table {
             width: 100%;
@@ -118,6 +131,7 @@
             text-align: center;
         }
         
+        
     </style>
 </head>
 <body>
@@ -135,6 +149,7 @@
         </nav>
     </header>
     <main>
+        <h1>Weather</h1>
         <section class="contentSection">
             <form class="weatherForm">
                 <input type="text" class="cityInput" placeholder="Enter city name">

@@ -34,8 +34,7 @@ async function getWeatherData(city) {
 }
 
 async function getForecastData(city) {
-    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&cnt=5&units=imperial&appid=${apiKey}`;
-
+    const apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=imperial&appid=${apiKey}`;
     const response = await fetch(apiUrl);
 
     if (!response.ok) {
@@ -51,14 +50,26 @@ function displayForecastInfo(currentData, forecastData) {
     // Display current weather
     const { name: city } = currentData;
     const currentWeatherRow = document.createElement("tr");
-    const currentDate = new Date().toLocaleDateString();
     currentWeatherRow.innerHTML = `
-        <td colspan="5"><strong>5-Day Forecast for ${city}</strong></td>
+        <td colspan="5"><strong>6-Day Forecast for ${city}</strong></td>
     `;
     forecastTableBody.appendChild(currentWeatherRow);
 
-    // Display 5-day forecast
-    forecastData.list.forEach(day => {
+    // Parse the forecast data to get unique days
+    const dailyData = [];
+    const daysAdded = new Set();
+    
+    forecastData.list.forEach(entry => {
+        const date = new Date(entry.dt * 1000).toLocaleDateString();
+        if (!daysAdded.has(date)) {
+            dailyData.push(entry);
+            daysAdded.add(date);
+        }
+        if (dailyData.length === 6) return;
+    });
+
+    // Display 6-day forecast
+    dailyData.forEach(day => {
         const { dt, main: { temp, humidity }, weather: [{ description, icon }] } = day;
 
         const date = new Date(dt * 1000).toLocaleDateString();
