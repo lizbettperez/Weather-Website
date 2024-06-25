@@ -16,6 +16,7 @@
             align-items: center;
             justify-content: flex-start;
             height: 100vh;
+            width: auto;
         }
 
         header {
@@ -76,27 +77,36 @@
         }
 
         .navLinks a:hover {
-            text-decoration: underline;
+            text-decoration: none;
         }
-        
+
         button[type="submit"]:hover {
             background-color: hsl(219, 69%, 21%);
 
         }
-        .button[type="submit"]{
-            width: 300px;
-            height: 20px;
+        button[type="submit"]{
+            font-size: large;
+            font-size: 0.5 rem;
+            background: linear-gradient(180deg, hsl(216, 79%, 55%), hsl(224, 97%, 30%));
+            border-width: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            border-top: 200px;
+            padding-bottom: 30px;
+            border-radius: 50px;
+            height: 15px;
         }
         .cityInput{
             height: 15px;
-            width: 500px;
+            width: 400px;
             background-color: hsl(199, 64%, 66%);
             border: transparent;
+            margin-right: 10px;
         }
         .contentSection {
-            width: 100%;
+            height: 200px;
+            width: 2000px;
             margin: 20px auto;
-            
         }
         table {
             width: 100%;

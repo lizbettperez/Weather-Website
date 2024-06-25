@@ -11,7 +11,7 @@ body {
 
 header {
     width: 100%;
-    background: linear-gradient(180deg, hsl(216, 87%, 37%), hsl(224, 80%, 33%));
+    background: linear-gradient(180deg, hsl(216, 79%, 59%), hsl(224, 83%, 49%));
     padding: 10px 0;
     display: flex;
     flex-direction: column;
@@ -83,7 +83,7 @@ h1{
     padding: 10px;
     font-size: 1.5rem;
     font-weight: bold;
-    border: 2px solid hsl(216, 60%, 25%);
+    border: transparent;
     border-radius: 50px;
     margin: 10px;
     width: 300px;
@@ -100,7 +100,7 @@ button[type="submit"] {
     padding: 10px 20px;
     font-weight: bold;
     font-size: 1.5rem;
-    background-color: hsl(219, 99%, 36%);
+    background: linear-gradient(180deg, hsl(216, 81%, 46%), hsl(224, 80%, 33%));
     color: white;
     border: none;
     border-radius: 5px;
