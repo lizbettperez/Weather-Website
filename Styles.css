@@ -195,3 +195,29 @@ p {
     font-size: 1rem;
     color: hsl(0, 0%, 40%);
 }
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Ensure the video is behind all other elements */
+}
+
+.video-background video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1; /* Ensure the video is behind all other elements */
+}
+
+/* Additional styles to ensure content is visible over the video */
+body {
+    position: relative;
+    z-index: 1;
+}
