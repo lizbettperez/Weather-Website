@@ -3,18 +3,34 @@ const newsContainer = document.getElementById('newsContainer');
 
 async function fetchWeatherNews() {
     const url = `https://newsapi.org/v2/everything?q=(weather OR climate OR storm OR hurricane OR flood OR rainfall)&language=en&sortBy=publishedAt&apiKey=${apiKey}`;
-    const response = await fetch(url);
-    const data = await response.json();
+    try {
+        const response = await fetch(url, {
+            headers: {
+                'Authorization': `Bearer ${apiKey}`
+            }
+        });
 
-    if (data.articles && data.articles.length > 0) {
-        const filteredArticles = filterWeatherArticles(data.articles);
-        if (filteredArticles.length > 0) {
-            displayNewsArticles(filteredArticles);
-        } else {
-            displayErrorMessage('No relevant weather news articles found.');
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
-    } else {
-        displayErrorMessage('No news articles found.');
+
+        const data = await response.json();
+        console.log('API response data:', data); 
+
+        if (data.articles && data.articles.length > 0) {
+            const filteredArticles = filterWeatherArticles(data.articles);
+            console.log('Filtered articles:', filteredArticles); 
+            if (filteredArticles.length > 0) {
+                displayNewsArticles(filteredArticles);
+            } else {
+                displayErrorMessage('No relevant weather news articles found.');
+            }
+        } else {
+            displayErrorMessage('No news articles found.');
+        }
+    } catch (error) {
+        console.error('Error fetching news:', error);
+        displayErrorMessage('Error fetching news. Please try again later.');
     }
 }
 
@@ -58,7 +74,7 @@ function displayErrorMessage(message) {
 
     const errorElement = document.createElement('p');
     errorElement.textContent = message;
-    errorElement.style.color = 'red';
+    errorElement.style.color = 'white';
 
     newsContainer.appendChild(errorElement);
 }
