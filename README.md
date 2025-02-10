@@ -3,6 +3,7 @@
 
 Weather Gateway is a web application that provides real-time weather updates using external API data. Users can search for a city and receive detailed weather information, including temperature, humidity, wind speed, and more.
 
+
 🚀 Features
 
 -🌍 Search weather by city name
@@ -15,6 +16,7 @@ Weather Gateway is a web application that provides real-time weather updates usi
 
 -📍 Location-based weather (if enabled by the user)
 
+
 🛠️ Technologies Used
 
 -HTML, CSS, JavaScript
@@ -22,6 +24,7 @@ Weather Gateway is a web application that provides real-time weather updates usi
 -OpenWeatherMap API
 
 -Fetch API for data retrieval
+
 
 📦 Installation & Setup
 1. Clone the repository:
